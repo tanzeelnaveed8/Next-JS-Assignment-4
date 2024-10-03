@@ -1,0 +1,125 @@
+/* card.module.css */
+
+.card {
+  width: 450px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f9f9f9; /* Light gray background */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+  position: relative; /* For pseudo-elements */
+  overflow: hidden; /* Hide overflow for animations */
+  animation: fadeIn 0.5s ease; /* Fade-in animation */
+  margin-left: 5%;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50; /* Dark slate blue */
+  margin-bottom: 10px;
+  position: relative; /* For positioning */
+  z-index: 1; /* Above the background */
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #3498db; /* Bright blue */
+  margin: 10px 0;
+  position: relative; /* For positioning */
+  z-index: 1; /* Above the background */
+  transition: color 0.3s ease, transform 0.3s ease; /* Animation on hover */
+}
+
+.name:hover {
+  color: #2980b9; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.divider {
+  height: 2px;
+  background-color: #3498db; /* Bright blue divider */
+  margin: 10px 0;
+}
+
+/* Label styling */
+.label {
+  font-weight: bold; /* Bold for all labels */
+  color: #000000; /* Black color for labels */
+}
+
+/* Regular text styling */
+.class,
+.rollno,
+.campus,
+.city {
+  font-size: 1rem;
+  color: #000000; /* Black color */
+  margin: 5px 0;
+  transition: color 0.3s ease; /* Animation on hover */
+}
+
+.class:hover,
+.rollno:hover,
+.campus:hover,
+.city:hover {
+  color: #e74c3c; /* Bright red on hover */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.footer {
+  font-size: 0.9rem;
+  color: #000000; /* Black for footer */
+  margin-top: 10px;
+  transition: color 0.3s ease; /* Animation on hover */
+  font-style: italic; /* Italic for footer */
+}
+
+.footer:hover {
+  color: #2c3e50; /* Darker color on hover */
+}
+
+/* Background shine effect */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Light shine effect */
+  pointer-events: none; /* Non-interactive */
+  z-index: 0; /* Behind the content */
+  opacity: 0.3; /* Slight opacity */
+  transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+.card:hover::before {
+  opacity: 0.5; /* Brighten shine on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 480px) {
+  .card {
+    width: 90%; /* Full width on small screens */
+  }
+
+  .header, .name, .class, .rollno, .campus, .city, .footer {
+    font-size: 0.9rem; /* Smaller text on small screens */
+  }
+}
